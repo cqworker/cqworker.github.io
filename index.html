@@ -1,28 +1,45 @@
-
+<!DOCTYPE html>
 <html>
 <head>
-  <script>
-  function test(){
-  alert("welcome");
-  }
-  </script>
-  </head>
-  <body>
-<h2 style="">hello body!!</h2>
-<a href="index02.html">------</a><br/>
-<button>点击捐肾</button>
-</body>
-  <table align="center">
-  <th>
-    <td>姓名</td>
-    <td>年龄</td>
-    <td>地址</td>
-    <th>
-  <tr>
-    <td>涨(￣︶￣)↗</td>
-    <td>☂</td>
-    <td>ヾ(≧奋≦)〃</td>
-      </tr>
-  </table>
+<script type="text/javascript">
+	function getCookie(c_name) {
+		if (document.cookie.length > 0) {
+			c_start = document.cookie.indexOf(c_name + "=")
+			if (c_start != -1) {
+				c_start = c_start + c_name.length + 1
+				c_end = document.cookie.indexOf(";", c_start)
+				if (c_end == -1)
+					c_end = document.cookie.length
+				return unescape(document.cookie.substring(c_start, c_end))
+			}
+		}
+		return ""
+	}
 
+	function setCookie(c_name, value, expiredays) {
+		var exdate = new Date()
+		exdate.setDate(exdate.getDate() + expiredays)
+		document.cookie = c_name
+				+ "="
+				+ escape(value)
+				+ ((expiredays == null) ? "" : "; expires="
+						+ exdate.toGMTString())
+	}
+
+	function checkCookie() {
+		alert(this);
+		username = getCookie('username')
+		if (username != null && username != "") {
+			alert('Welcome again ' + username + '!')
+		} else {
+			username = prompt('Please enter your name:', "")
+			if (username != null && username != "") {
+				setCookie('username', username, 365)
+			}
+		}
+	}
+</script>
+</head>
+<body onLoad="checkCookie()">
+</body>
 </html>
