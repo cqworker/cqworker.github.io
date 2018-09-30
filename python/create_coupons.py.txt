@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# Created by cq
+
 import random
 import string
 
 
-#  ×ÖµäÓò ÓÉÊı×ÖºÍ×ÖÄ¸£¨°üÀ¨´óĞ¡Ğ´£©×é³É
+#  å­—å…¸åŸŸ ç”±æ•°å­—å’Œå­—æ¯ï¼ˆåŒ…æ‹¬å¤§å°å†™ï¼‰ç»„æˆ
 FIELD = string.digits + string.letters
 
 
 def generate(n, many=1, where=None):
     """
-        Éú³Émany×éËæ»úÂë
+        ç”Ÿæˆmanyç»„éšæœºç 
     """
     def getCode(n):
         """
-            µÃµ½nÎ»¼¤»îÂë
+            å¾—åˆ°nä½æ¿€æ´»ç 
         """
         return "".join(random.sample(FIELD, n))
     gene = [getCode(n) for i in range(many)]
@@ -24,7 +24,7 @@ def generate(n, many=1, where=None):
 
 def writeIn(n, many, where):
     """
-        Ğ´ÈëÎÄ¼ş ²¢°´Ë³ĞòÅÅÁĞ
+        å†™å…¥æ–‡ä»¶ å¹¶æŒ‰é¡ºåºæ’åˆ—
     """
     count = 1
     for i in generate(n, many):
