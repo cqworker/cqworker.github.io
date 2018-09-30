@@ -138,7 +138,8 @@ layui.use(['util', 'laydate', 'layer'], function(){
     ,bgcolor: '#393D49'
     ,click: function(type){
       if(type === 'bar1'){
-        $("#timeLineDiv").show();
+          layer.msg('待完善')
+        // $("#timeLineDiv").show();
       } else if(type === 'bar2') {
           $("#timeLineDiv").hide();
         layer.msg('待完善')
