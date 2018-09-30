@@ -1,0 +1,18 @@
+
+.tabDiv{
+	width: 100%;
+	position: absolute;
+}
+.timeLineDiv{
+	width: 30%;
+	position: absolute;
+}
+
+#tabDiv{
+  height:50px;
+  left:0px;
+}
+#timeLineDiv{
+  left:78%;
+  top:88px;
+}
