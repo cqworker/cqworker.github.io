@@ -25,6 +25,8 @@
 			</tr>
 		</table>
 	</div>
+	 <input type="button" value="点击跳转" id="mybutton"/>
+	 <div id="test">xxx</div>
 	<div class="com_banner">
 		<ul>
 			<li><img src="http://img.biyao.com/files/data0/web/e6efc32e70a94924a3bc15a4107d0d49.jpg" alt="1" /></li>
@@ -32,7 +34,8 @@
 			<li><img src="http://img.biyao.com/files/data0/web/bbfdea94089b4af9beb896c4f0be45d0.jpg" alt="3" /></li>
 			<li><img src="http://img.biyao.com/files/data0/web/0cd0f3c63b6b4306893406a27cc23e5a.jpg" alt="4" /></li>
 			<li><img src="http://img.biyao.com/files/data0/web/ef73d2204a334d5a8bb5a3a183ba4a31.jpg" alt="5" /></li>
-			<li><img src="http://img.biyao.com/files/data0/web/24179954b9554ebd8dba74b07ef46650.jpg" alt="6" /></li>
+			
+			<li><img src="http://123.207.74.68:801/images/" alt="6" /></li>
 		</ul>
 		<ol>
 			<li></li>
@@ -43,6 +46,38 @@
 			<li></li>
 		</ol>
 	</div>
+	<script>
+$(function(){
+
+	$("#mybutton").bind("click",function(){
+		 $.ajax({
+             type: "GET",
+             url: "http://123.207.74.68:801/",
+             data: {username:"json", content:"html"},
+             dataType: "html",
+             success: function(data){
+                         alert("ok")
+						 },
+			 error: function(xhr, type){
+                      console.log(xhr)
+					  //直接访问,因为同源策略无法成功,cors无法生效,因为是用的github的无法直接操作响应
+					  //采用jsonp
+					  //1.构造script src
+					   $("head").append("<script src='http://123.207.74.68:801/'><\/script>");
+                    }
+         });
+	})
+})
+  //2.回调函数
+          function showData (result) {
+            $("#text").val(result);
+			//对于单独的nginx代理还需要配置,则没有必要
+			//jsonp原理是 script src通过get获取数据,服务端还是要封装回调函数,置于封装的过程有很多
+			//传参告诉回调函数名,后端进行封装 通过response.write写回,会在success调用前执行回调
+			//获取数据直接就是一个js,将数据写在js中,调用js中的函数获取数据...
+        }
+
+</script>
 	<script>
 		$(function() {
 			<!--调用Luara示例-->
