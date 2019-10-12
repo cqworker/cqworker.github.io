@@ -1,10 +1,10 @@
-github: [user1, user2]
-patreon: cqworker
-open_collective: Open Collective username
-ko_fi:  Ko-fi username
-tidelift:Tidelift platform-name/package-name
-community_bridge: spring cloud
-liberapay: jdk
-issuehunt: cqworker
-otechie: Otechie username
+github: [cqworker]
+# patreon: cqworker
+# open_collective: Open Collective username
+# ko_fi:  Ko-fi username
+# tidelift:Tidelift platform-name/package-name
+# community_bridge: spring cloud
+# liberapay: jdk
+# issuehunt: cqworker
+# otechie: Otechie username
 custom:['https://juejin.im/', 'https://cn.bing.com/']
