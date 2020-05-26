@@ -9,22 +9,24 @@ on:
     branches: [ master ]
 
 jobs:
-  jobs_id1:
+  job_id:
+    name: job_name
     runs-on: ubuntu-latest
     env:
-      key1: 123
-      key2: 321
+      KEY_1: 123
+      KEY_2: 321
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: step_first
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo ${{ jobs_id1.env.key1 }}
+    - name: step_2
+      run: echo $job_id.env.key1
 
     # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
+    - name: step_3
       run: |
-        echo ${{ jobs_id1.env.key1 }},
-        echo ${{ jobs_id1.env.key2 }}.
+        echo $job_id.env.KEY_1,
+        echo $job_id.env.KEY_2.
