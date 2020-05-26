@@ -9,8 +9,8 @@ on:
     branches: [ master ]
 
 jobs:
-  job_id:
-    name: job_name
+  job_001:
+    name: test_job
     runs-on: ubuntu-latest
     env:
       KEY_1: 123
@@ -22,19 +22,27 @@ jobs:
       uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: step_2
+    - name: use_shell
       id: strep_2_id
       env:
-        KEY_1: key-1
+        KEY_1: 8976554
         KEY_3: chengqun
       run: |
+       pwd
+       whoami
+       echo "$PWD"
        echo $KEY_1
+       echo ${KEY_1}
        echo "${KEY_3:0:4}"
        echo ${KEY_3:0:4}
+       
 
     # Runs a set of commands using the runners shell
-    - name: step_3
+    - name: ssh_login
       run: |
-        echo $KEY_1
-        echo $KEY_2
-        echo $KEY_3
+        ssh -p 31415 dev@120.24.179.212 
+
+        
+    - name: docker_operation
+      run: |
+        docker ps 
