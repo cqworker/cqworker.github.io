@@ -23,10 +23,17 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: step_2
-      run: echo $job_id.env.key1
+      id: strep_2_id
+      env:
+        KEY_1: key-1
+        KEY_3: chengqun
+      run: |
+       echo $KEY_1
+       echo $KEY_3
 
     # Runs a set of commands using the runners shell
     - name: step_3
       run: |
-        echo $job_id.env.KEY_1,
-        echo $job_id.env.KEY_2.
+        echo $KEY_1
+        echo $KEY_2
+        echo $KEY_3
