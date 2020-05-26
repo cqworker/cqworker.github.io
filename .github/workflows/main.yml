@@ -17,7 +17,6 @@ jobs:
       KEY_2: 321
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    continue-on-error: true
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: step_first
       uses: actions/checkout@v2
@@ -42,6 +41,7 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: ssh_login
+      continue-on-error: true
       run: |
         ssh -p 31415 dev@120.24.179.212 
     - name: another_ssh_login
