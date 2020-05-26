@@ -29,7 +29,8 @@ jobs:
         KEY_3: chengqun
       run: |
        echo $KEY_1
-       echo ${${KEY_3}:0:4}
+       echo "${chengqun:0:4}"
+       echo ${chengqun:0:4}
 
     # Runs a set of commands using the runners shell
     - name: step_3
